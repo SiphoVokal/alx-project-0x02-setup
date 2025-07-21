@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const about: React.FC = () => {
+export default function About() {
     return (
         <div>
             <h1>about</h1>

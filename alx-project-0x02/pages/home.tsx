@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-const home: React.FC = () => {
+export default function Home() {
     return (
         <div>
-            <h1>about</h1>
+            <h1>home</h1>
         </div>
     );
 }
