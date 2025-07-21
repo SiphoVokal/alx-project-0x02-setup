@@ -5,7 +5,8 @@ const Header: React.FC = () => {
         <header className= "py-4">
             <div className="container mx-auto flex justify-evenly items-center px-4">
                 <h3 className="font-bold text-2xl">
-                    <Link href="/home">My App</Link></h3>
+                    <Link href="/home">My App</Link>
+                </h3>
                 <nav>
                     <ul className="flex space-x-6">
                         <li className="hover:underline">
