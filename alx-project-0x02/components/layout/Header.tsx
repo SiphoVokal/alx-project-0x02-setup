@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Header: React.FC = () => {
     return (
         <header className= "py-4">
-            <div className="container mx-auto flex justify-between items-center px-4">
+            <div className="container mx-auto flex justify-evenly items-center px-4">
                 <h3 className="font-bold text-2xl">
                     <Link href="/">My App</Link></h3>
                 <nav>
