@@ -1,6 +1,6 @@
 import Header from "@/components/layout/Header";
 
-export default function Home() {
+export default function Landing() {
   return (
     <div className="flex flex-col h-screen">
       <Header />
