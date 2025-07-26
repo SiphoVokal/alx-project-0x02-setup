@@ -37,7 +37,7 @@ export async function getStaticProps() {
     props: {
       users,
     },
-    revalidate: 60, // Optional: Regenerates the page every 60 seconds
+    revalidate: 60, 
   };
 }
 
