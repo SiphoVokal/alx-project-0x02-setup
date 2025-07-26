@@ -1,31 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import UserCard from "@/components/common/UserCard";
-import { UserProps } from "@/interfaces";
+import { UserProps, UsersPageProps } from "@/interfaces";
 import Headers from "@/components/layout/Header";
 
-const Users: React.FC = () => {
-  const [users, setUsers] = useState<UserProps[]>([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((data) =>
-        setUsers(
-          data.map((user: any) => ({
-            name: user.name,
-            email: user.email,
-            address: {
-              street: user.address.street,
-              city: user.address.city,
-            },
-          }))
-        )
-      );
-  }, []);
-
+const Users: React.FC<UsersPageProps> = ({ users }) => {
   return (
     <>
-    <Headers />
       <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {users.map((user, index) => (
         <UserCard
@@ -39,5 +19,26 @@ const Users: React.FC = () => {
     </>
   );
 };
+
+export async function getStaticProps() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await res.json();
+
+  const users: UserProps[] = data.map((user: any) => ({
+    name: user.name,
+    email: user.email,
+    address: {
+      street: user.address.street,
+      city: user.address.city,
+    },
+  }));
+
+  return {
+    props: {
+      users,
+    },
+    revalidate: 60, // Optional: Regenerates the page every 60 seconds
+  };
+}
 
 export default Users;

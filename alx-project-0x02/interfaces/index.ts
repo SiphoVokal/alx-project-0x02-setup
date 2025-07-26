@@ -39,3 +39,7 @@ export interface UserProps {
     city: string;
   };
 }
+
+export interface UsersPageProps {
+  users: UserProps[];
+}
